@@ -1,0 +1,10 @@
+id: api_listing
+plugin_id: api_listing
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

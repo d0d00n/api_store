@@ -1,0 +1,23 @@
+{
+  "name": "drupal/api_store",
+  "description": "Temporary module to API Store.",
+  "type": "drupal-module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/stephane-berube/api_store",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/stephane-berube/api_store/issues",
+    "source": "https://github.com/stephane-berube/api_store"
+  },
+  "require": {
+    "drupal/core": "^8.6"
+  },
+  "authors": [
+    {
+      "name": "Stephane Berube",
+      "homepage": "https://github.com/stephane-berube",
+      "role": "Maintainer"
+    }
+  ]
+}

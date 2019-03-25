@@ -1,0 +1,7 @@
+api_store.settings:
+  path: '/admin/structure/api_store/settings'
+  defaults:
+    _form: '\Drupal\api_store\Form\ApiStoreSettingsForm'
+    _title: 'API Store Settings'
+  requirements:
+    _permission: 'administer site configuration'

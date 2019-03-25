@@ -1,0 +1,67 @@
+<?php
+
+namespace Drupal\api_store\Form;
+
+use Drupal\Core\Form\ConfigFormBase;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Configure example settings for this site.
+ */
+class ApiStoreSettingsForm extends ConfigFormBase {
+    /** @var string Config settings */
+  const SETTINGS = 'api_store.settings';
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'api_store_admin_settings';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames() {
+    return [
+      static::SETTINGS,
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $config = $this->config(static::SETTINGS);
+
+    $form['listing_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Listing endpoint (ex: homepage)'),
+      '#default_value' => $config->get('listing_endpoint'),
+    ];
+
+    $form['subscriptions_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Subscriptions endpoint'),
+      '#default_value' => $config->get('subscriptions_endpoint'),
+    ];
+
+    return parent::buildForm($form, $form_state);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+      // Retrieve the configuration
+       $this->configFactory->getEditable(static::SETTINGS)
+      // Set the submitted configuration setting
+      ->set('listing_endpoint', $form_state->getValue('listing_endpoint'))
+      // You can set multiple configurations at once by making
+      // multiple calls to set()
+      ->set('subscriptions_endpoint', $form_state->getValue('subscriptions_endpoint'))
+      ->save();
+
+    parent::submitForm($form, $form_state);
+  }
+}

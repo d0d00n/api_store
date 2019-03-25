@@ -1,0 +1,10 @@
+id: subscriptions
+plugin_id: subscriptions
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

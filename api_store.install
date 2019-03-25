@@ -1,0 +1,17 @@
+<?php
+
+function api_store_uninstall() {
+    // FIXME: Hardcoded for now
+    $configs = [
+        "rest.resource.api_listing",
+        "rest.resource.subscriptions"
+    ];
+
+    // Delete each config using configFactory.
+    foreach ($configs as $config_name) {
+        // drush_print("..." . $config_name);
+        \Drupal::configFactory()->getEditable($config_name)->delete();
+    }
+
+    return true;
+}

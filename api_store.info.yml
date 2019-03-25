@@ -1,0 +1,5 @@
+name: API Store
+description: Endpoints used by API Store Drupal pages
+package: Custom
+type: module
+core: 8.x
