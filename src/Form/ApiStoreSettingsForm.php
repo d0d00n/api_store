@@ -46,6 +46,12 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('subscriptions_endpoint'),
     ];
 
+    $form['logout_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Logout endpoint'),
+      '#default_value' => $config->get('logout_endpoint'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -57,9 +63,8 @@ class ApiStoreSettingsForm extends ConfigFormBase {
        $this->configFactory->getEditable(static::SETTINGS)
       // Set the submitted configuration setting
       ->set('listing_endpoint', $form_state->getValue('listing_endpoint'))
-      // You can set multiple configurations at once by making
-      // multiple calls to set()
       ->set('subscriptions_endpoint', $form_state->getValue('subscriptions_endpoint'))
+      ->set('logout_endpoint', $form_state->getValue('logout_endpoint'))
       ->save();
 
     parent::submitForm($form, $form_state);
