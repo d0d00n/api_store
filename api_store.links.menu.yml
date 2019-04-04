@@ -1,0 +1,6 @@
+api_store.admin:
+  title: 'API Store Configs'
+  description: 'Manage API Store Endpoints'
+  parent: system.admin_config_system
+  route_name: api_store.settings
+  weight: 1
