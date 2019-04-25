@@ -52,6 +52,12 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('logout_endpoint'),
     ];
 
+    $form['replicate_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Replicate endpoint'),
+      '#default_value' => $config->get('replicate_endpoint'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -65,6 +71,7 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       ->set('listing_endpoint', $form_state->getValue('listing_endpoint'))
       ->set('subscriptions_endpoint', $form_state->getValue('subscriptions_endpoint'))
       ->set('logout_endpoint', $form_state->getValue('logout_endpoint'))
+      ->set('replicate_endpoint', $form_state->getValue('replicate_endpoint'))
       ->save();
 
     parent::submitForm($form, $form_state);
