@@ -1,0 +1,10 @@
+id: api_sandboxlisting
+plugin_id: api_sandboxlisting
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

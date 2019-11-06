@@ -58,6 +58,18 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('replicate_endpoint'),
     ];
 
+    $form['sandbox_listing_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Sandbox listing endpoint (to test changes to integration module)'),
+      '#default_value' => $config->get('sandbox_listing_endpoint'),
+    ];
+
+    $form['sandbox_subscriptions_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Sandbox subscriptions endpoint (to test changes to integration module)'),
+      '#default_value' => $config->get('sandbox_subscriptions_endpoint'),
+    ];	
+	
     return parent::buildForm($form, $form_state);
   }
 
@@ -72,6 +84,8 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       ->set('subscriptions_endpoint', $form_state->getValue('subscriptions_endpoint'))
       ->set('logout_endpoint', $form_state->getValue('logout_endpoint'))
       ->set('replicate_endpoint', $form_state->getValue('replicate_endpoint'))
+	  ->set('sandbox_listing_endpoint', $form_state->getValue('sandbox_listing_endpoint'))
+	  ->set('sandbox_subscriptions_endpoint', $form_state->getValue('sandbox_subscriptions_endpoint'))
       ->save();
 
     parent::submitForm($form, $form_state);
